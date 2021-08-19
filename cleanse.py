@@ -1,0 +1,83 @@
+import csv
+from os import access
+import pandas as pd
+
+file = pd.read_csv('real-final.csv')
+del file["hyperlink"]
+del file["temp_planet_date"]
+del file["temp_planet_mass"]
+del file["pl_letter"]
+del file["pl_controvflag"]
+del file["pl_name"]
+del file["pl_pnum"]
+del file["pl_orbper"]
+del file["pl_orbpererr1"]
+del file["pl_orbpererr2"]
+del file["pl_orbperlim"]
+del file["pl_orbeccen"]
+del file["pl_orbeccenerr1"]
+del file["pl_orbeccenerr2"]
+del file["pl_orbeccenlim"]
+del file["pl_orbsmax"]
+del file["pl_orbsmaxerr1"]
+del file["pl_orbsmaxerr2"]
+del file["pl_orbsmaxlim"]
+del file["pl_orbinclerr1"]
+del file["pl_orbinclerr2"]
+del file["pl_orbincllim"]
+del file["pl_bmassj"]
+del file["pl_bmassjerr1"]
+del file["pl_bmassjerr2"]
+del file["pl_bmassjlim"]
+del file["pl_bmassprov"]
+del file["pl_radj"]
+del file["pl_radjerr1"]
+del file["pl_radjerr2"]
+del file["pl_radjlim"]
+del file["pl_denserr1"]
+del file["pl_denserr2"]
+del file["pl_denslim"]
+del file["pl_ttvflag"]
+del file["pl_k2flag"]
+del file["pl_kepflag"]
+del file["pl_nnotes"]
+del file["ra"]
+del file["dec"]
+del file["st_dist"]
+del file["st_disterr1"]
+del file["st_disterr2"]
+del file["st_distlim"]
+del file["gaia_dist"]
+del file["gaia_disterr1"]
+del file["gaia_disterr2"]
+del file["gaia_distlim"]
+del file["st_optmag"]
+del file["st_optmagerr"]
+del file["st_optmaglim"]
+del file["st_optband"]
+del file["gaia_gmag"]
+del file["gaia_gmagerr"]
+del file["gaia_gmaglim"]
+del file["st_tefferr1"]
+del file["st_tefferr2"]
+del file["st_tefflim"]
+del file["st_masserr1"]
+del file["st_masserr2"]
+del file["st_masslim"]
+del file["st_raderr1"]
+del file["st_raderr2"]
+del file["st_radlim"]
+del file["rowupdate"]
+del file["pl_facility"]
+file = file.rename({
+    'pl_hostname': 'solar_system_name',
+    'pl_dismethod': 'planet_discovery_method',
+    'pl_orbincl': 'planet_orbital_inclination',
+    'pl_dens': 'planet_density',
+    'ra_str': 'right_ascension',
+    'dec_str': 'declination',
+    'st_teff': 'host_temperature',
+    'st_mass': 'host_mass',
+    'st_rad': 'host_redius',
+}, axis = 'columns')
+file.to_csv("clean.csv")
